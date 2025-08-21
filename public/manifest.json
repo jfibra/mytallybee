@@ -1,0 +1,21 @@
+{
+  "name": "Tallybee - Remote QuickBooks Bookkeeping",
+  "short_name": "Tallybee",
+  "description": "Remote QuickBooks Online bookkeeping service. Clear, accurate, on time.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#001f3f",
+  "icons": [
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-192.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
