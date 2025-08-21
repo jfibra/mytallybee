@@ -113,13 +113,13 @@ export default function ServicesPage() {
     {
       name: "Starter",
       transactions: "Up to 50 transactions/month",
-      price: "$299",
+      price: "$250",
       features: ["Monthly reconciliations", "Basic P&L and Balance Sheet", "Email support"],
     },
     {
       name: "Growth",
       transactions: "51-150 transactions/month",
-      price: "$499",
+      price: "$450",
       features: ["Everything in Starter", "Accounts payable/receivable", "Payroll categorization", "Priority support"],
     },
     {
