@@ -27,14 +27,13 @@ export function Navbar() {
       aria-label="Main navigation"
     >
       <div className="container-width">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center" aria-label="MyTallyBee home">
             <Image
               src="/mytallybee-logo.png"
               alt="MyTallyBee"
-              width={120}
+              width={150}
               height={40}
-              className="h-10 w-auto"
               priority
             />
           </Link>

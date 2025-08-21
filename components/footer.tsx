@@ -27,7 +27,7 @@ export function Footer() {
                 alt="MyTallyBee"
                 width={150}
                 height={50}
-                className="h-12 w-auto brightness-0 invert"
+                className="h-20 w-auto brightness-0 invert"
               />
             </div>
             <p className="text-blue-100 mb-6 max-w-md leading-relaxed">
