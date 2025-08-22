@@ -111,8 +111,6 @@ export default function RootLayout({
             />
           </>
         )}
-
-        <script src="https://www.noupe.com/embed/0198a949c3697ee99eb2873dcafa46590d3d.js" async />
       </head>
       <body className="min-h-screen bg-white font-sans">
         <StructuredData type="organization" />
