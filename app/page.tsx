@@ -157,8 +157,6 @@ export default function HomePage() {
           <TestimonialsSection />
         </Section>
 
-        <IntegrationLogos />
-
         <Section className="bg-gray-50 px-4 sm:px-6 lg:px-8">
           <ExpandedFAQ />
         </Section>
