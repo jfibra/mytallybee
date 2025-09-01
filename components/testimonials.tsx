@@ -16,7 +16,7 @@ const testimonials = [
   {
     name: "Dr. Zeph Okeke",
     company: "",
-    text: "I have been very happy with MyTallybee. I confidently referred them to a couple of my friends.",
+    text: "I am very happy with MyTallybee. I confidently referred them to a couple of my friends.",
     rating: 5,
   },
 ]
