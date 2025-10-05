@@ -1,64 +1,66 @@
-import { NextRequest, NextResponse } from 'next/server'
-import nodemailer from 'nodemailer'
+import { type NextRequest, NextResponse } from "next/server"
+import nodemailer from "nodemailer"
 
 export async function POST(request: NextRequest) {
-  console.log('=== SEND EMAIL API CALLED ===')
-  
+  console.log("[v0] Send email API called")
+
   try {
-    console.log('Step 1: Reading request body...')
+    console.log("[v0] Reading request body...")
     const body = await request.json()
-    console.log('Step 2: Request body received:', body)
-    
+    console.log("[v0] Request body received")
+
     // Validate required fields
     if (!body.name || !body.email || !body.message) {
-      console.log('Step 3: Missing required fields')
+      console.log("[v0] Missing required fields")
+      return NextResponse.json({ error: "Name, email, and message are required" }, { status: 400 })
+    }
+
+    if (
+      !process.env.SMTP_HOST ||
+      !process.env.SMTP_PORT ||
+      !process.env.SMTP_USERNAME ||
+      !process.env.SMTP_PASSWORD ||
+      !process.env.RECIPIENT_EMAIL
+    ) {
+      console.error("[v0] Missing required environment variables")
       return NextResponse.json(
-        { error: 'Name, email, and message are required' },
-        { status: 400 }
+        { error: "Email service is not properly configured. Please contact support." },
+        { status: 500 },
       )
     }
 
-    console.log('Step 4: Environment variables check:', {
-      SMTP_HOST: !!process.env.SMTP_HOST,
-      SMTP_PORT: !!process.env.SMTP_PORT,
-      SMTP_USERNAME: !!process.env.SMTP_USERNAME,
-      SMTP_PASSWORD: !!process.env.SMTP_PASSWORD,
-      RECIPIENT_EMAIL: !!process.env.RECIPIENT_EMAIL,
-      // Show actual values for debugging
-      SMTP_HOST_VALUE: process.env.SMTP_HOST,
-      SMTP_PORT_VALUE: process.env.SMTP_PORT,
-      SMTP_USERNAME_VALUE: process.env.SMTP_USERNAME,
-      RECIPIENT_EMAIL_VALUE: process.env.RECIPIENT_EMAIL
-    })
+    console.log("[v0] Environment variables validated")
+    console.log("[v0] Creating transporter...")
 
-    console.log('Step 5: Creating transporter...')
-    
-    // Create transporter using Hostinger SMTP
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'smtp.hostinger.com',
-      port: parseInt(process.env.SMTP_PORT || '465'),
-      secure: true,
+      host: process.env.SMTP_HOST,
+      port: Number.parseInt(process.env.SMTP_PORT),
+      secure: Number.parseInt(process.env.SMTP_PORT) === 465, // true for 465, false for other ports
       auth: {
-        user: process.env.SMTP_USERNAME || 'noreply@alienshipper.com',
-        pass: process.env.SMTP_PASSWORD || 'Tiger1981#!',
+        user: process.env.SMTP_USERNAME,
+        pass: process.env.SMTP_PASSWORD,
       },
-      debug: true,
-      logger: true
+      pool: false, // Disable connection pooling for serverless
+      maxConnections: 1, // Only one connection at a time
+      connectionTimeout: 10000, // 10 second connection timeout
+      greetingTimeout: 10000, // 10 second greeting timeout
+      socketTimeout: 15000, // 15 second socket timeout
+      debug: process.env.NODE_ENV === "development",
+      logger: process.env.NODE_ENV === "development",
     })
 
-    console.log('Step 6: ✅ Transporter created successfully')
+    console.log("[v0] Transporter created successfully")
 
-    // Verify SMTP connection
     try {
-      console.log('Step 7: Verifying SMTP connection...')
-      await transporter.verify()
-      console.log('Step 8: ✅ SMTP connection verified')
+      console.log("[v0] Verifying SMTP connection...")
+      await Promise.race([
+        transporter.verify(),
+        new Promise((_, reject) => setTimeout(() => reject(new Error("SMTP verification timeout")), 10000)),
+      ])
+      console.log("[v0] SMTP connection verified")
     } catch (verifyError) {
-      console.error('Step 8: ❌ SMTP verification failed:', verifyError)
-      return NextResponse.json(
-        { error: 'Email server connection failed. Please check SMTP settings.' },
-        { status: 500 }
-      )
+      console.error("[v0] SMTP verification failed:", verifyError)
+      return NextResponse.json({ error: "Email server connection failed. Please try again later." }, { status: 500 })
     }
 
     // Email HTML template
@@ -71,13 +73,13 @@ export async function POST(request: NextRequest) {
       </head>
       <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0;">
         <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
-          <!-- Header -->
+           Header 
           <div style="background: linear-gradient(135deg, #001f3f 0%, #003366 100%); padding: 30px; text-align: center; border-radius: 8px 8px 0 0;">
             <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 600;">MyTallyBee</h1>
             <p style="color: #f59e0b; margin: 10px 0 0 0; font-size: 16px; font-weight: 500;">New Contact Form Submission</p>
           </div>
           
-          <!-- Content -->
+           Content 
           <div style="background: #ffffff; padding: 30px; border: 1px solid #e2e8f0; border-top: 0; border-radius: 0 0 8px 8px;">
             <h2 style="color: #001f3f; margin-top: 0;">Contact Details</h2>
             
@@ -92,20 +94,28 @@ export async function POST(request: NextRequest) {
                   <a href="mailto:${body.email}" style="color: #f59e0b;">${body.email}</a>
                 </td>
               </tr>
-              ${body.phone ? `
+              ${
+                body.phone
+                  ? `
               <tr>
                 <td style="padding: 10px 0; border-bottom: 1px solid #e2e8f0; font-weight: bold;">Phone:</td>
                 <td style="padding: 10px 0; border-bottom: 1px solid #e2e8f0;">
                   <a href="tel:${body.phone}" style="color: #f59e0b;">${body.phone}</a>
                 </td>
               </tr>
-              ` : ''}
-              ${body.company ? `
+              `
+                  : ""
+              }
+              ${
+                body.company
+                  ? `
               <tr>
                 <td style="padding: 10px 0; border-bottom: 1px solid #e2e8f0; font-weight: bold;">Company:</td>
                 <td style="padding: 10px 0; border-bottom: 1px solid #e2e8f0;">${body.company}</td>
               </tr>
-              ` : ''}
+              `
+                  : ""
+              }
               <tr>
                 <td style="padding: 10px 0; border-bottom: 1px solid #e2e8f0; font-weight: bold;">Date:</td>
                 <td style="padding: 10px 0; border-bottom: 1px solid #e2e8f0;">${new Date().toLocaleString()}</td>
@@ -120,12 +130,16 @@ export async function POST(request: NextRequest) {
                  style="display: inline-block; background: #f59e0b; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; margin-right: 10px;">
                 Reply to ${body.name}
               </a>
-              ${body.phone ? `
+              ${
+                body.phone
+                  ? `
               <a href="tel:${body.phone}" 
                  style="display: inline-block; background: #001f3f; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px;">
                 Call ${body.name}
               </a>
-              ` : ''}
+              `
+                  : ""
+              }
             </div>
           </div>
           
@@ -143,42 +157,36 @@ export async function POST(request: NextRequest) {
     // Email options
     const mailOptions = {
       from: `"MyTallyBee Contact Form" <${process.env.SMTP_USERNAME}>`,
-      to: process.env.RECIPIENT_EMAIL || 'johnryfibra2@gmail.com',
+      to: process.env.RECIPIENT_EMAIL,
       subject: `🔔 New Contact from ${body.name} - MyTallyBee`,
       html: htmlContent,
       replyTo: body.email,
     }
 
-    console.log('Step 9: Sending email...')
-    console.log('Mail options:', {
-      from: mailOptions.from,
-      to: mailOptions.to,
-      subject: mailOptions.subject,
-      replyTo: mailOptions.replyTo
-    })
+    console.log("[v0] Sending email...")
 
-    // Send email
-    const info = await transporter.sendMail(mailOptions)
-    console.log('Step 10: ✅ Email sent successfully!')
-    console.log('Message ID:', info.messageId)
+    const info = (await Promise.race([
+      transporter.sendMail(mailOptions),
+      new Promise((_, reject) => setTimeout(() => reject(new Error("Email send timeout")), 20000)),
+    ])) as nodemailer.SentMessageInfo
+
+    console.log("[v0] Email sent successfully. Message ID:", info.messageId)
+
+    transporter.close()
 
     return NextResponse.json({
       success: true,
-      message: 'Thank you for your message! We\'ll get back to you within 24 hours.',
-      messageId: info.messageId
+      message: "Thank you for your message! We'll get back to you within 24 hours.",
+      messageId: info.messageId,
     })
-
   } catch (error) {
-    console.error('=== EMAIL API ERROR ===')
-    console.error('Error details:', error)
-    console.error('Error message:', error instanceof Error ? error.message : 'Unknown error')
-    console.error('Error stack:', error instanceof Error ? error.stack : 'No stack')
-    
+    console.error("[v0] Email API error:", error instanceof Error ? error.message : "Unknown error")
+
     return NextResponse.json(
-      { 
-        error: 'Failed to send email: ' + (error instanceof Error ? error.message : 'Unknown error')
+      {
+        error: "Failed to send email. Please try again later.",
       },
-      { status: 500 }
+      { status: 500 },
     )
   }
 }
