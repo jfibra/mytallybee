@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { Analytics } from "@/components/analytics"
+import { Analytics as VercelAnalytics } from "@vercel/analytics/react"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { StructuredData } from "@/components/seo-structured-data"
 import "./globals.css"
@@ -19,14 +20,24 @@ export const metadata: Metadata = {
   description:
     "Remote QuickBooks Online bookkeeping service. Clear, accurate, on time. Specialized bookkeeping for small businesses. 98% of clients audit-ready year-round.",
   generator: "Next.js",
-  keywords: ["bookkeeping", "QuickBooks Online", "remote bookkeeping", "small business", "accounting", "ProAdvisor", "certified", "audit-ready"],
+  keywords: [
+    "bookkeeping",
+    "QuickBooks Online",
+    "remote bookkeeping",
+    "small business",
+    "accounting",
+    "ProAdvisor",
+    "certified",
+    "audit-ready",
+  ],
   authors: [{ name: "MyTallyBee" }],
   creator: "MyTallyBee",
   publisher: "MyTallyBee",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://mytallybee.com"),
   openGraph: {
     title: "MyTallyBee - Remote QuickBooks Bookkeeping | Certified ProAdvisor",
-    description: "Remote QuickBooks Online bookkeeping service. Clear, accurate, on time. 98% of clients audit-ready year-round.",
+    description:
+      "Remote QuickBooks Online bookkeeping service. Clear, accurate, on time. 98% of clients audit-ready year-round.",
     url: "/",
     siteName: "MyTallyBee",
     locale: "en_US",
@@ -43,7 +54,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "MyTallyBee - Remote QuickBooks Bookkeeping | Certified ProAdvisor",
-    description: "Remote QuickBooks Online bookkeeping service. Clear, accurate, on time. 98% of clients audit-ready year-round.",
+    description:
+      "Remote QuickBooks Online bookkeeping service. Clear, accurate, on time. 98% of clients audit-ready year-round.",
     images: ["/img/hero-bookkeeper-workspace.jpg"],
     creator: "@MyTallyBee",
   },
@@ -131,10 +143,7 @@ export default function RootLayout({
         )}
 
         {/* Google Ads */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=AW-11093596364"
-        />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11093596364" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -170,6 +179,7 @@ export default function RootLayout({
           <ScrollToTop />
         </Suspense>
         <Analytics />
+        <VercelAnalytics />
       </body>
     </html>
   )
