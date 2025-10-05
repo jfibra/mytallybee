@@ -229,7 +229,7 @@ export default function AboutPage() {
             playsInline
             className="absolute inset-0 w-full h-full object-cover opacity-20"
           >
-            <source src="/videos/team-collaboration-tablet.mp4" type="video/mp4" />
+            <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_L3pfcF4KLbLXtR6MlXGxLOliDPN5/b5jWKCOtBWcTfQNOvl4g9p/public/videos/team-collaboration-tablet.mp4" type="video/mp4" />
           </video>
           <div className="relative z-10 text-center max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">

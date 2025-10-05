@@ -64,7 +64,7 @@ export default function SchedulePage() {
             playsInline
             className="absolute inset-0 w-full h-full object-cover opacity-10"
           >
-            <source src="/videos/bookkeeper-phone-consultation.mp4" type="video/mp4" />
+            <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_L3pfcF4KLbLXtR6MlXGxLOliDPN5/mh74gNy3TUhH7bjk24CmXJ/public/videos/bookkeeper-phone-consultation.mp4" type="video/mp4" />
           </video>
           <div className="relative z-10 text-center max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-brand-navy mb-6">Schedule Your Free Consultation</h1>

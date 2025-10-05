@@ -170,7 +170,7 @@ export default function ServicesPage() {
             playsInline
             className="absolute inset-0 w-full h-full object-cover opacity-10"
           >
-            <source src="/videos/financial-data-analysis.mp4" type="video/mp4" />
+            <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_L3pfcF4KLbLXtR6MlXGxLOliDPN5/uqEW858OAUkN4ith5EkpMY/public/videos/financial-data-analysis.mp4" type="video/mp4" />
           </video>
           <AnimatedBackground />
 
