@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
       secure: true,
       auth: {
         user: process.env.SMTP_USERNAME || 'noreply@alienshipper.com',
-        pass: 'Tiger1981#!',
+        pass: process.env.SMTP_PASSWORD || 'Tiger1981#!',
       },
       debug: true,
       logger: true
