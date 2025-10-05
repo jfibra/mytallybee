@@ -52,7 +52,7 @@ export default function QuickBooksSetupTipsPage() {
       name: "MyTallyBee",
       logo: {
         "@type": "ImageObject",
-        url: "https://mytallybee.com/mytallybee-logo.png",
+        url: "https://mytallybee.com/mytallybee.png",
       },
     },
     datePublished: "2025-10-01T00:00:00Z",

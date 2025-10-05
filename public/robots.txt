@@ -11,6 +11,10 @@ Allow: /about
 Allow: /services
 Allow: /contact
 Allow: /schedule
+Allow: /blog
+Allow: /blog/*
+Allow: /faq
+Allow: /reviews
 
 # Legal and compliance pages
 Allow: /privacy

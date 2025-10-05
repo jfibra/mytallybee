@@ -1,6 +1,5 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { LogoBee } from "@/components/logo-bee"
 import { BackgroundGrid } from "@/components/background-grid"
 
 export default function NotFound() {
@@ -10,7 +9,13 @@ export default function NotFound() {
 
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 text-center">
         <div className="mb-8">
-          <LogoBee className="w-24 h-24 mx-auto mb-6 text-brand-amber animate-bounce" />
+          <img
+            src="/mytallybee.png"
+            alt="MyTallyBee"
+            width={120}
+            height={80}
+            className="mx-auto mb-6 animate-bounce"
+          />
         </div>
 
         <h1 className="text-6xl md:text-8xl font-bold text-white mb-4">404</h1>

@@ -23,7 +23,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <div className="mb-6">
               <Image
-                src="/mytallybee-logo.png"
+                src="/mytallybee.png"
                 alt="MyTallyBee"
                 width={150}
                 height={50}

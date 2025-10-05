@@ -31,7 +31,7 @@ export function Navbar() {
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center" aria-label="MyTallyBee home">
             <Image
-              src="/mytallybee-logo.png"
+              src="/mytallybee.png"
               alt="MyTallyBee"
               width={150}
               height={40}

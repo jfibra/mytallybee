@@ -49,7 +49,7 @@ export function SEOHead({
             name: "Tallybee",
             description: "Remote QuickBooks Online bookkeeping service",
             url: process.env.NEXT_PUBLIC_SITE_URL,
-            logo: `${process.env.NEXT_PUBLIC_SITE_URL}/logo.png`,
+            logo: `${process.env.NEXT_PUBLIC_SITE_URL}/mytallybee.png`,
             contactPoint: {
               "@type": "ContactPoint",
               contactType: "customer service",
