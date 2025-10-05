@@ -88,7 +88,7 @@ const nextConfig = {
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://assets.calendly.com https://calendly.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com",
               "font-src 'self' https://fonts.gstatic.com https://assets.calendly.com",
-              "img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://assets.calendly.com",
+              "img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://assets.calendly.com https://www.google.com https://www.google.com.ph",
               "connect-src 'self' https://www.google-analytics.com https://www.google.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://api.calendly.com",
               "frame-src 'self' https://calendly.com https://www.googletagmanager.com",
               "object-src 'none'",
