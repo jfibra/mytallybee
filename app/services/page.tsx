@@ -7,25 +7,35 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { FloatingReports, FloatingCalculator } from "@/components/floating-elements"
 import { AnimatedBackground } from "@/components/animated-background"
 import Link from "next/link"
+import Image from "next/image"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "QuickBooks Online Bookkeeping Services | Tallybee",
+  title: "QuickBooks Online Bookkeeping Services | MyTallyBee | Certified ProAdvisor",
   description:
-    "Professional remote bookkeeping services specializing in QuickBooks Online. Monthly reconciliations, financial reports, and year-end CPA handoff.",
+    "Professional remote bookkeeping services specializing in QuickBooks Online. Monthly reconciliations, financial reports, and year-end CPA handoff. 98% audit-ready clients.",
   keywords:
-    "QuickBooks Online, bookkeeping services, remote bookkeeping, small business accounting, monthly reconciliations",
+    "QuickBooks Online, bookkeeping services, remote bookkeeping, small business accounting, monthly reconciliations, QuickBooks ProAdvisor, audit-ready books",
   openGraph: {
-    title: "QuickBooks Online Bookkeeping Services | Tallybee",
-    description: "Professional remote bookkeeping services specializing in QuickBooks Online for small businesses.",
-    url: "https://tallybee.vercel.app/services",
-    siteName: "Tallybee",
+    title: "QuickBooks Online Bookkeeping Services | MyTallyBee",
+    description: "Professional remote bookkeeping services specializing in QuickBooks Online for small businesses. 98% audit-ready clients.",
+    url: "https://mytallybee.com/services",
+    siteName: "MyTallyBee",
     type: "website",
+    images: [
+      {
+        url: "/img/financial-reports-calculator.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Professional bookkeeping services and financial reports",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "QuickBooks Online Bookkeeping Services | Tallybee",
+    title: "QuickBooks Online Bookkeeping Services | MyTallyBee",
     description: "Professional remote bookkeeping services specializing in QuickBooks Online for small businesses.",
+    images: ["/img/financial-reports-calculator.jpg"],
   },
 }
 
@@ -153,6 +163,15 @@ export default function ServicesPage() {
       <main id="main-content">
         {/* Hero Section */}
         <Section className="pt-16 sm:pt-20 pb-8 sm:pb-12 relative overflow-hidden px-4 sm:px-6 lg:px-8" showGrid>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover opacity-10"
+          >
+            <source src="/videos/financial-data-analysis.mp4" type="video/mp4" />
+          </video>
           <AnimatedBackground />
 
           <div className="relative z-10 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -187,6 +206,15 @@ export default function ServicesPage() {
             </div>
 
             <div className="relative hidden lg:block">
+              <div className="absolute inset-0 -z-10">
+                <Image
+                  src="/img/accountant-calculator-work.jpg"
+                  alt="Professional bookkeeping workspace"
+                  width={600}
+                  height={400}
+                  className="object-cover opacity-30 rounded-2xl"
+                />
+              </div>
               <FloatingReports className="absolute top-0 left-0 animate-float-slow" />
               <FloatingCalculator className="absolute bottom-0 right-0 animate-float-medium" />
             </div>

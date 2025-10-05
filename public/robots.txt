@@ -1,18 +1,57 @@
+# MyTallyBee Robots.txt
+# Professional QuickBooks Online Bookkeeping Services
+# https://mytallybee.com
+
 User-agent: *
 Allow: /
 
-# Sitemaps
-Sitemap: https://tallybee.vercel.app/sitemap.xml
-
-# Disallow admin areas (if any)
-Disallow: /admin/
-Disallow: /api/
-
-# Allow important pages
+# Important pages for SEO ranking
 Allow: /
-Allow: /services
 Allow: /about
+Allow: /services
 Allow: /contact
 Allow: /schedule
+
+# Legal and compliance pages
 Allow: /privacy
 Allow: /terms
+
+# Static assets and media files
+Allow: /img/
+Allow: /videos/
+Allow: /_next/static/
+Allow: /favicon.ico
+Allow: /manifest.json
+
+# Block sensitive areas and APIs
+Disallow: /api/
+Disallow: /_next/
+Disallow: /node_modules/
+Disallow: /.env*
+Disallow: /admin/
+Disallow: /dashboard/
+
+# Search engine specific directives
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Sitemap locations
+Sitemap: https://mytallybee.com/sitemap.xml
+Sitemap: https://mytallybee.com/robots.txt/sitemap.xml
+
+# Host directive (helps with canonicalization)
+Host: https://mytallybee.com
+
+# Crawl delay (be respectful to servers)
+Crawl-delay: 1

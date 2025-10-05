@@ -17,6 +17,7 @@ import { TestimonialsSection } from "@/components/testimonials"
 import { IntegrationLogos } from "@/components/integration-logos"
 import { ExpandedFAQ } from "@/components/expanded-faq"
 import Link from "next/link"
+import Image from "next/image"
 
 /**
  * Home page with hero section, value propositions, and trust indicators
@@ -76,11 +77,10 @@ export default function HomePage() {
           <div className="relative z-10 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="text-center lg:text-left px-4 sm:px-0">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-navy mb-4 sm:mb-6 leading-tight">
-                Bookkeeping that just clicks.
+                Accurate QuickBooks Bookkeeping. Zero Headaches.
               </h1>
               <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-6 sm:mb-8 leading-relaxed">
-                Tallybee specializes in QuickBooks Online for small businesses. Clean books, clear reports, zero
-                headaches.
+                Specialists in QuickBooks Online (QBO) for small businesses. Get perfectly clean books, clear financial reports, and monthly reconciliation.
               </p>
 
               {/* CTA Buttons */}
@@ -112,6 +112,16 @@ export default function HomePage() {
             </div>
 
             <div className="relative hidden lg:block">
+              <div className="absolute inset-0 -z-10">
+                <Image
+                  src="/img/hero-bookkeeper-workspace.jpg"
+                  alt="Professional bookkeeper workspace"
+                  width={600}
+                  height={400}
+                  className="object-cover opacity-20 rounded-2xl"
+                  priority
+                />
+              </div>
               <FloatingDashboard className="absolute top-0 left-0 animate-float-slow" />
               <FloatingReports className="absolute top-20 right-0 animate-float-medium" />
               <FloatingCalculator className="absolute bottom-0 left-20 animate-float-fast" />
@@ -120,41 +130,67 @@ export default function HomePage() {
         </Section>
 
         {/* Value Propositions */}
-        <Section className="bg-gray-50 px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-navy mb-3 sm:mb-4">
-              Remote QuickBooks Bookkeeping. Clear. Accurate. On time.
-            </h2>
-            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-              We focus on one thing and do it exceptionally well: remote bookkeeping in QuickBooks Online.
-            </p>
+        <Section className="bg-gray-50 px-4 sm:px-6 lg:px-8 relative">
+          <div className="absolute inset-0 opacity-5">
+            <Image
+              src="/img/accurate-books-illustration-graphics.jpg"
+              alt="Background pattern"
+              fill
+              className="object-cover"
+            />
           </div>
+          <div className="relative z-10">
+            <div className="text-center mb-8 sm:mb-12">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-navy mb-3 sm:mb-4">
+                Remote QuickBooks Bookkeeping. Clear. Accurate. On time.
+              </h2>
+              <p className="text-xl sm:text-2xl font-bold text-brand-blue mb-3 sm:mb-4">
+                98% of Our Clients are Audit-Ready, Year-Round.
+              </p>
+              <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+                We focus on one thing and do it exceptionally well: remote bookkeeping in QuickBooks Online.
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
-            <ValueCard
-              icon={<IconAccurate size={32} />}
-              title="Accurate Books"
-              description="Monthly reconciliations and tidy ledgers. Your financial data will be clean, organized, and audit-ready."
-            />
-            <ValueCard
-              icon={<IconSimple size={32} />}
-              title="Simple Process"
-              description="A quick setup and a consistent cadence. We handle the complexity so you can focus on growing your business."
-            />
-            <ValueCard
-              icon={<IconTransparent size={32} />}
-              title="Transparent Pricing"
-              description="No surprises. Clear scope, clear fees. You'll know exactly what you're getting and what it costs."
-            />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
+              <ValueCard
+                icon={<IconAccurate size={32} />}
+                title="Accurate Books"
+                description="Monthly reconciliations and tidy ledgers. Your financial data will be clean, organized, and audit-ready."
+                image="/img/financial-reports-calculator.jpg"
+              />
+              <ValueCard
+                icon={<IconSimple size={32} />}
+                title="Simple Process"
+                description="A quick setup and a consistent cadence. We handle the complexity so you can focus on growing your business."
+                image="/img/laptop-calculator-workspace.jpg"
+              />
+              <ValueCard
+                icon={<IconTransparent size={32} />}
+                title="Transparent Pricing"
+                description="No surprises. Clear scope, clear fees. You'll know exactly what you're getting and what it costs."
+                image="/img/audit-magnifying-glass.jpg"
+              />
+            </div>
           </div>
         </Section>
 
-        <Section className="px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-brand-navy mb-3 sm:mb-4">What our clients say</h2>
-            <p className="text-base sm:text-lg text-gray-600">Real feedback from real small business owners</p>
+        <Section className="px-4 sm:px-6 lg:px-8 relative">
+          <div className="absolute inset-0 opacity-5">
+            <Image
+              src="/img/testimonials-background.jpg"
+              alt="Background pattern"
+              fill
+              className="object-cover"
+            />
           </div>
-          <TestimonialsSection />
+          <div className="relative z-10">
+            <div className="text-center mb-8 sm:mb-12">
+              <h2 className="text-2xl sm:text-3xl font-bold text-brand-navy mb-3 sm:mb-4">What our clients say</h2>
+              <p className="text-base sm:text-lg text-gray-600">Real feedback from real small business owners</p>
+            </div>
+            <TestimonialsSection />
+          </div>
         </Section>
 
         <Section className="bg-gray-50 px-4 sm:px-6 lg:px-8">

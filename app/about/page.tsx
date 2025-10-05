@@ -4,20 +4,36 @@ import { Footer } from "@/components/footer"
 import { Badge } from "@/components/badge"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import Image from "next/image"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "About Tallybee | Remote QuickBooks Bookkeeping",
+  title: "About MyTallyBee | Certified QuickBooks ProAdvisor | Remote Bookkeeping",
   description:
-    "Learn about Tallybee's mission to provide accurate, clear, and consistent QuickBooks Online bookkeeping services for small businesses.",
-  keywords: "about Tallybee, QuickBooks ProAdvisor, remote bookkeeping team, small business accounting",
+    "Learn about MyTallyBee's mission to provide accurate, clear, and consistent QuickBooks Online bookkeeping services. Certified QuickBooks ProAdvisor with 98% audit-ready clients.",
+  keywords: "about MyTallyBee, QuickBooks ProAdvisor, remote bookkeeping team, small business accounting, certified bookkeeper",
   openGraph: {
-    title: "About Tallybee | Remote QuickBooks Bookkeeping",
+    title: "About MyTallyBee | Certified QuickBooks ProAdvisor",
     description:
-      "Learn about Tallybee's mission to provide accurate, clear, and consistent QuickBooks Online bookkeeping services.",
-    url: "https://tallybee.vercel.app/about",
-    siteName: "Tallybee",
+      "Learn about MyTallyBee's mission to provide accurate, clear, and consistent QuickBooks Online bookkeeping services.",
+    url: "https://mytallybee.com/about",
+    siteName: "MyTallyBee",
     type: "website",
+    images: [
+      {
+        url: "/img/team-bookkeeping-analysis.jpg",
+        width: 1200,
+        height: 630,
+        alt: "MyTallyBee team providing professional bookkeeping services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About MyTallyBee | Certified QuickBooks ProAdvisor",
+    description:
+      "Learn about MyTallyBee's mission to provide accurate, clear, and consistent QuickBooks Online bookkeeping services.",
+    images: ["/img/team-bookkeeping-analysis.jpg"],
   },
 }
 
@@ -65,9 +81,17 @@ export default function AboutPage() {
       <Navbar />
       <main id="main-content">
         {/* Hero Section */}
-        <Section className="pt-16 sm:pt-20 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8" showGrid>
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-navy mb-4 sm:mb-6">Why Tallybee?</h1>
+        <Section className="pt-16 sm:pt-20 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 relative" showGrid>
+          <div className="absolute inset-0 opacity-10">
+            <Image
+              src="/img/bookkeeper-services-portfolio.jpg"
+              alt="Professional bookkeeping services"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="relative z-10 text-center max-w-4xl mx-auto">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-navy mb-4 sm:mb-6">Why MyTallyBee?</h1>
             <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
               We believe small business owners should spend their time growing their business, not wrestling with
               bookkeeping software.
@@ -77,13 +101,45 @@ export default function AboutPage() {
 
         {/* Story Section */}
         <Section className="px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-12">
               <div>
                 <h2 className="text-2xl sm:text-3xl font-bold text-brand-navy mb-4 sm:mb-6">Our Story</h2>
                 <div className="space-y-3 sm:space-y-4 text-gray-600 leading-relaxed text-sm sm:text-base">
                   <p>
-                    Tallybee was founded on a simple observation: most small businesses struggle with bookkeeping not
+                    At MyTallyBee.com (Pryime, Inc), our mission is to transform financial complexity into clarity. We were founded by Ziyadah Alease ("Zee"), a Certified QuickBooks ProAdvisor with over seven years of strategic experience in accounting, finance management, and multi-entity bookkeeping.
+                  </p>
+                  <p>
+                    Zee is known for her precision and strategic approach, having helped businesses streamline financial processes and gain clear, actionable insights into their operations.
+                  </p>
+                  <p>
+                    Together, she and her small team provide professional bookkeeping and accounting services designed not just to keep the books accurate, but to save you time, ensure full compliance, and fuel smarter business decisions. We deliver the reliability and expertise your business deserves.
+                  </p>
+                </div>
+              </div>
+              <div className="flex justify-center relative">
+                <div className="relative">
+                  <Image
+                    src="/img/ziyadah.jpeg"
+                    alt="Ziyadah Alease (Zee), Certified QuickBooks ProAdvisor and Founder of MyTallyBee"
+                    width={400}
+                    height={500}
+                    className="rounded-2xl shadow-lg object-cover"
+                  />
+                  <div className="absolute -bottom-4 -right-4">
+                    <Badge className="text-base sm:text-lg px-4 sm:px-6 py-3 sm:py-4 bg-white shadow-lg" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Additional story content */}
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="lg:order-2">
+                <h3 className="text-xl sm:text-2xl font-bold text-brand-navy mb-4">Our Approach</h3>
+                <div className="space-y-3 sm:space-y-4 text-gray-600 leading-relaxed text-sm sm:text-base">
+                  <p>
+                    MyTallyBee was founded on a simple observation: most small businesses struggle with bookkeeping not
                     because it's inherently difficult, but because it requires specialized knowledge and consistent
                     attention to detail.
                   </p>
@@ -92,14 +148,16 @@ export default function AboutPage() {
                     exceptional results. We're not trying to be everything to everyone – we're the specialists you call
                     when you want your QuickBooks done right.
                   </p>
-                  <p>
-                    Every business deserves clean, accurate books. That's what we deliver, month after month, with the
-                    reliability and expertise that comes from doing one thing exceptionally well.
-                  </p>
                 </div>
               </div>
-              <div className="flex justify-center">
-                <Badge className="text-base sm:text-lg px-4 sm:px-6 py-3 sm:py-4" />
+              <div className="lg:order-1 flex justify-center relative">
+                <Image
+                  src="/img/woman-laptop-financial-review.jpg"
+                  alt="Professional bookkeeper reviewing financial data"
+                  width={400}
+                  height={300}
+                  className="rounded-2xl shadow-lg"
+                />
               </div>
             </div>
           </div>
@@ -121,18 +179,35 @@ export default function AboutPage() {
         </Section>
 
         {/* Team Section */}
-        <Section className="px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
+        <Section className="px-4 sm:px-6 lg:px-8 relative">
+          <div className="absolute inset-0 opacity-5">
+            <Image
+              src="/img/team-bookkeeping-analysis.jpg"
+              alt="Team collaboration background"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="relative z-10 max-w-4xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-brand-navy mb-4 sm:mb-6">
               Expert Bookkeeping, Personal Service
             </h2>
             <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
-              Tallybee combines the expertise of seasoned bookkeeping professionals with the personal attention that
+              MyTallyBee combines the expertise of seasoned bookkeeping professionals with the personal attention that
               only comes from a dedicated, specialized service. When you work with us, you're not just another account
               number – you're a valued partner in building something great.
             </p>
             <div className="flex justify-center mb-6 sm:mb-8">
-              <div className="p-4 sm:p-6 bg-brand-blue/10 rounded-xl border border-brand-blue/20 max-w-md">
+              <div className="p-4 sm:p-6 bg-brand-blue/10 rounded-xl border border-brand-blue/20 max-w-md relative">
+                <div className="absolute top-4 right-4">
+                  <Image
+                    src="/img/data-analysis-pencil.jpg"
+                    alt="Professional certification"
+                    width={60}
+                    height={60}
+                    className="rounded-lg opacity-20"
+                  />
+                </div>
                 <h3 className="text-base sm:text-lg font-semibold text-brand-navy mb-2">
                   Certified QuickBooks ProAdvisor
                 </h3>
@@ -146,10 +221,19 @@ export default function AboutPage() {
         </Section>
 
         {/* CTA Section */}
-        <Section className="bg-brand-navy text-white px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto">
+        <Section className="bg-brand-navy text-white px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover opacity-20"
+          >
+            <source src="/videos/team-collaboration-tablet.mp4" type="video/mp4" />
+          </video>
+          <div className="relative z-10 text-center max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
-              Ready to experience the Tallybee difference?
+              Ready to experience the MyTallyBee difference?
             </h2>
             <p className="text-base sm:text-lg mb-6 sm:mb-8 opacity-90">
               Let's talk about how we can bring accuracy, clarity, and consistency to your bookkeeping.

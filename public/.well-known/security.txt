@@ -1,0 +1,22 @@
+Contact: mailto:security@mytallybee.com
+Contact: https://mytallybee.com/contact
+Expires: 2025-12-31T23:59:59.000Z
+Encryption: https://mytallybee.com/.well-known/pgp-key.txt
+Preferred-Languages: en
+Canonical: https://mytallybee.com/.well-known/security.txt
+Policy: https://mytallybee.com/privacy
+Hiring: https://mytallybee.com/contact
+
+# MyTallyBee Security Contact Information
+# Professional QuickBooks Online Bookkeeping Services
+# 
+# If you discover a security vulnerability, please report it responsibly.
+# We appreciate your efforts to improve our security.
+#
+# Please include:
+# - Description of the vulnerability
+# - Steps to reproduce
+# - Potential impact
+# - Any suggested remediation
+#
+# We will respond within 24-48 hours during business days.

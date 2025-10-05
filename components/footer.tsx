@@ -97,6 +97,21 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/blog" className="text-blue-100 hover:text-white transition-colors">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="text-blue-100 hover:text-white transition-colors">
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link href="/reviews" className="text-blue-100 hover:text-white transition-colors">
+                  Reviews
+                </Link>
+              </li>
+              <li>
                 <Link href="/schedule" className="text-blue-100 hover:text-white transition-colors">
                   Schedule Consultation
                 </Link>
@@ -119,7 +134,7 @@ export function Footer() {
         <div className="pt-8 border-t border-blue-800">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-blue-100 text-sm">
-              © {currentYear} MyTallyBee. All rights reserved. | QuickBooks Online ProAdvisor Certified
+              © {currentYear} MyTallyBee. All rights reserved.
             </p>
 
             {/* Social Links */}

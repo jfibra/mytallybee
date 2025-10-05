@@ -39,7 +39,7 @@ export function Badge({ className, children }: BadgeProps) {
           className="text-brand-blue"
         />
       </svg>
-      <span className="text-sm font-medium text-brand-blue">{children || "QuickBooks Online Specialist"}</span>
+      <span className="text-sm font-medium text-brand-blue">{children || "QuickBooks ProAdvisor Certified"}</span>
     </div>
   )
 }
