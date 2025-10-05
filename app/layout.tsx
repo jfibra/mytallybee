@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { Analytics } from "@/components/analytics"
+import { Analytics as VercelAnalytics } from "@vercel/analytics/react"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { StructuredData } from "@/components/seo-structured-data"
 import "./globals.css"
@@ -178,6 +179,7 @@ export default function RootLayout({
           <ScrollToTop />
         </Suspense>
         <Analytics />
+        <VercelAnalytics />
       </body>
     </html>
   )
