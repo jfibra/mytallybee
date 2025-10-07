@@ -156,6 +156,35 @@ export function Footer() {
             </div>
           </div>
         </div>
+
+        {/* Contact block */}
+        <div className="mt-6 border-t pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div>
+            <p className="text-sm text-blue-100">Questions? Reach us:</p>
+            <div className="flex items-center gap-4">
+              <a
+                href="mailto:ziy@mytallybee.com"
+                className="text-sm text-blue-100 hover:text-white underline-offset-2 hover:underline"
+                aria-label="Email MyTallyBee"
+              >
+                ziy@mytallybee.com
+              </a>
+              <span className="text-blue-200">•</span>
+              <a
+                href="tel:+12138683048"
+                className="text-sm text-blue-100 hover:text-white underline-offset-2 hover:underline"
+                aria-label="Call MyTallyBee"
+              >
+                (213) 868-3048
+              </a>
+            </div>
+          </div>
+
+          {/* optionally preserve existing footer right-side content... */}
+          <div>
+            {/* ...existing footer right-side content... */}
+          </div>
+        </div>
       </div>
     </footer>
   )

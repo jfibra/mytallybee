@@ -126,6 +126,12 @@ export default function AboutPage() {
                     height={500}
                     className="rounded-2xl shadow-lg object-cover"
                   />
+                  {/* Name overlay so visitors know this is Zee, not a stock photo */}
+                  <div className="absolute inset-0 rounded-2xl pointer-events-none">
+                    <div className="absolute left-4 bottom-4 bg-black/60 text-white px-3 py-1 rounded-md text-sm font-semibold">
+                      Ziyadah Alease — Founder & Certified QuickBooks ProAdvisor
+                    </div>
+                  </div>
                   <div className="absolute -bottom-4 -right-4">
                     <Badge className="text-base sm:text-lg px-4 sm:px-6 py-3 sm:py-4 bg-white shadow-lg" />
                   </div>

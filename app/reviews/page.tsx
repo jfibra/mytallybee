@@ -30,7 +30,7 @@ export default function ReviewsPage() {
       name: "Jesse Brewer",
       company: "Chiloquin Lawn Care",
       industry: "Landscaping Services",
-      text: "We have worked with Marc from MyTallyBee for over 3 years. They have been a great asset to our small business. Their attention to detail and proactive communication has helped us stay on top of our finances and make better business decisions. I highly recommend their services to any small business owner looking for reliable bookkeeping support.",
+      text: "We have worked with Ziy from MyTallyBee for over 3 years. They have been a great asset to our small business. Their attention to detail and proactive communication has helped us stay on top of our finances and make better business decisions. I highly recommend their services to any small business owner looking for reliable bookkeeping support.",
       rating: 5,
       image: "/img/professional-man-smiling.png",
       results: "Improved cash flow visibility and streamlined tax preparation",
@@ -198,12 +198,9 @@ export default function ReviewsPage() {
         {/* Google Reviews CTA */}
         <Section className="bg-brand-navy text-white">
           <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4">
-              Join Our Happy Clients
-            </h2>
-            <p className="text-blue-100 mb-8 text-lg">
-              Ready to experience the same peace of mind and financial clarity? Let's discuss how we can help streamline your QuickBooks bookkeeping.
-            </p>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4">Join Our Happy Clients</h2>
+            <p className="text-blue-100 mb-8 text-lg">Ready to experience the same peace of mind and financial clarity? Let's discuss how we can help streamline your QuickBooks bookkeeping.</p>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild variant="accent">
                 <Link href="/schedule">Schedule Free Consultation</Link>
@@ -212,9 +209,10 @@ export default function ReviewsPage() {
                 <Link href="/services">View Our Services</Link>
               </Button>
             </div>
+
+            {/* Added contact info in CTA */}
             <p className="text-blue-200 text-sm mt-6">
-              Have a great experience with us? We'd love to hear from you! 
-              <Link href="/contact" className="underline ml-1">Share your feedback</Link>
+              Prefer to reach out directly? Email <a href="mailto:ziy@mytallybee.com" className="underline">ziy@mytallybee.com</a> or call <a href="tel:+12138683048" className="underline">(213) 868-3048</a>.
             </p>
           </div>
         </Section>

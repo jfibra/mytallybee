@@ -262,7 +262,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <h3 className="font-semibold text-gray-900">Email</h3>
-                        <p className="text-gray-600">info@mytallybee.com</p>
+                        <p className="text-gray-600">ziy@mytallybee.com</p>
                         <p className="text-sm text-gray-500">We respond within 24 hours</p>
                       </div>
                     </div>
@@ -339,6 +339,17 @@ export default function ContactPage() {
             </Button>
           </div>
         </Section>
+
+        {/* Added visible contact info for users who prefer email/phone */}
+        <section className="max-w-3xl mx-auto mt-8">
+          <div className="mt-8 bg-gray-50 p-4 rounded-md">
+            <h3 className="text-lg font-semibold text-brand-navy mb-2">Prefer to contact us directly?</h3>
+            <p className="text-sm text-gray-700">
+              Email: <a href="mailto:ziy@mytallybee.com" className="text-brand-amber underline">ziy@mytallybee.com</a><br />
+              Phone: <a href="tel:+12138683048" className="text-brand-amber underline">(213) 868-3048</a>
+            </p>
+          </div>
+        </section>
       </main>
       <Footer />
     </>
