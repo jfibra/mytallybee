@@ -30,38 +30,36 @@ export async function POST(request: NextRequest) {
     }
 
     console.log("[v0] Environment variables validated")
-    console.log("[v0] Creating transporter...")
+    console.log("[v0] SMTP Config:", {
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT,
+      user: process.env.SMTP_USERNAME,
+    })
 
+    const smtpPort = Number.parseInt(process.env.SMTP_PORT)
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: Number.parseInt(process.env.SMTP_PORT),
-      secure: Number.parseInt(process.env.SMTP_PORT) === 465, // true for 465, false for other ports
+      port: smtpPort,
+      secure: true, // Always true for port 465
+      requireTLS: true, // Force TLS
       auth: {
         user: process.env.SMTP_USERNAME,
         pass: process.env.SMTP_PASSWORD,
       },
-      pool: false, // Disable connection pooling for serverless
-      maxConnections: 1, // Only one connection at a time
-      connectionTimeout: 10000, // 10 second connection timeout
-      greetingTimeout: 10000, // 10 second greeting timeout
-      socketTimeout: 15000, // 15 second socket timeout
+      tls: {
+        rejectUnauthorized: false, // Accept self-signed certificates
+        minVersion: "TLSv1.2",
+      },
+      pool: false, // Disable pooling for serverless
+      maxConnections: 1,
+      connectionTimeout: 30000, // 30 seconds
+      greetingTimeout: 30000,
+      socketTimeout: 30000,
       debug: process.env.NODE_ENV === "development",
       logger: process.env.NODE_ENV === "development",
     })
 
     console.log("[v0] Transporter created successfully")
-
-    try {
-      console.log("[v0] Verifying SMTP connection...")
-      await Promise.race([
-        transporter.verify(),
-        new Promise((_, reject) => setTimeout(() => reject(new Error("SMTP verification timeout")), 10000)),
-      ])
-      console.log("[v0] SMTP connection verified")
-    } catch (verifyError) {
-      console.error("[v0] SMTP verification failed:", verifyError)
-      return NextResponse.json({ error: "Email server connection failed. Please try again later." }, { status: 500 })
-    }
 
     // Email HTML template
     const htmlContent = `
@@ -167,7 +165,7 @@ export async function POST(request: NextRequest) {
 
     const info = (await Promise.race([
       transporter.sendMail(mailOptions),
-      new Promise((_, reject) => setTimeout(() => reject(new Error("Email send timeout")), 20000)),
+      new Promise((_, reject) => setTimeout(() => reject(new Error("Email send timeout after 30s")), 30000)),
     ])) as nodemailer.SentMessageInfo
 
     console.log("[v0] Email sent successfully. Message ID:", info.messageId)
@@ -181,10 +179,17 @@ export async function POST(request: NextRequest) {
     })
   } catch (error) {
     console.error("[v0] Email API error:", error instanceof Error ? error.message : "Unknown error")
+    console.error("[v0] Full error:", error)
 
     return NextResponse.json(
       {
         error: "Failed to send email. Please try again later.",
+        details:
+          process.env.NODE_ENV === "development"
+            ? error instanceof Error
+              ? error.message
+              : "Unknown error"
+            : undefined,
       },
       { status: 500 },
     )
