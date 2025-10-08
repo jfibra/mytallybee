@@ -89,7 +89,7 @@ export default function SchedulePage() {
             <div className="bg-white rounded-xl p-8 border border-gray-200 shadow-sm">
               <h2 className="text-2xl font-semibold text-brand-navy mb-6 text-center">30-Minute Discovery Call</h2>
 
-              <CalendlyEmbed url="https://calendly.com/johnryfibra2/30min" className="min-h-[600px] w-full" />
+              <CalendlyEmbed url="https://calendly.com/ziy-mytallybee/30min" className="min-h-[600px] w-full" />
 
               <div className="mt-8 text-center">
                 <p className="text-sm text-gray-500 mb-4">

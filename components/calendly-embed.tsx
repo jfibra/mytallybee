@@ -20,7 +20,7 @@ interface CalendlyModalProps extends CalendlyEmbedProps {
 }
 
 export function CalendlyEmbed({
-  url = "https://calendly.com/johnryfibra2/30min",
+  url = "https://calendly.com/ziy-mytallybee/30min",
   className,
   prefill,
 }: CalendlyEmbedProps) {
@@ -157,7 +157,7 @@ export function CalendlyEmbed({
 export function CalendlyModal({
   isOpen,
   onClose,
-  url = "https://calendly.com/johnryfibra2/30min",
+  url = "https://calendly.com/ziy-mytallybee/30min",
   title = "Schedule a Consultation",
   prefill,
   className,

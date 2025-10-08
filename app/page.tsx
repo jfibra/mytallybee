@@ -63,7 +63,7 @@ export default function HomePage() {
               "@type": "PostalAddress",
               addressCountry: "US",
             },
-            sameAs: ["https://calendly.com/johnryfibra2/30min"],
+            sameAs: ["https://calendly.com/ziy-mytallybee/30min"],
           }),
         }}
       />
@@ -225,7 +225,7 @@ export default function HomePage() {
       <CalendlyModal
         isOpen={isCalendlyModalOpen}
         onClose={() => setIsCalendlyModalOpen(false)}
-        url="https://calendly.com/johnryfibra2/30min"
+        url="https://calendly.com/ziy-mytallybee/30min"
         title="Schedule Your Free Consultation"
       />
     </>
