@@ -4,7 +4,7 @@ const testimonials = [
   {
     name: "Jesse Brewer",
     company: "Chiloquin Lawn Care",
-    text: "We have worked with Marc from MyTallyBee for over 3 years. They have been a great asset to our small business.",
+    text: "We have worked with Ziy from MyTallyBee for over 3 years. They have been a great asset to our small business.",
     rating: 5,
   },
   {

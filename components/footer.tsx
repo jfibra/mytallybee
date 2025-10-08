@@ -23,25 +23,41 @@ export function Footer() {
           <div className="lg:col-span-2">
             <div className="mb-6">
               <Image
-                src="/mytallybee.png"
+                src="/mytallybee-favicon.png"
                 alt="MyTallyBee"
                 width={150}
                 height={50}
-                className="h-20 w-auto brightness-0 invert"
+                className="h-30 w-auto"
               />
             </div>
             <p className="text-blue-100 mb-6 max-w-md leading-relaxed">
               Professional remote bookkeeping services specializing in QuickBooks Online. We help small businesses
               maintain accurate financial records with transparency and expertise.
             </p>
-            <div className="space-y-3">
-              <div className="flex items-center gap-3 text-blue-100">
-                <Mail size={16} />
-                <span>hello@mytallybee.com</span>
+            <div className="space-y-3 text-blue-100">
+              <div className="flex items-center gap-3">
+                <span className="inline-flex items-center text-blue-100">
+                  <Mail size={16} />
+                </span>
+                <a
+                  href="mailto:ziy@mytallybee.com"
+                  className="text-sm hover:text-white underline-offset-2 hover:underline"
+                  aria-label="Email MyTallyBee"
+                >
+                  ziy@mytallybee.com
+                </a>
               </div>
-              <div className="flex items-center gap-3 text-blue-100">
-                <Phone size={16} />
-                <span>(555) 123-4567</span>
+              <div className="flex items-center gap-3">
+                <span className="inline-flex items-center text-blue-100">
+                  <Phone size={16} />
+                </span>
+                <a
+                  href="tel:+12138683048"
+                  className="text-sm hover:text-white underline-offset-2 hover:underline"
+                  aria-label="Call MyTallyBee"
+                >
+                  (213) 868-3048
+                </a>
               </div>
               <div className="flex items-center gap-3 text-blue-100">
                 <MapPin size={16} />
@@ -138,7 +154,7 @@ export function Footer() {
             </p>
 
             {/* Social Links */}
-            <div className="flex items-center gap-4">
+            {/* <div className="flex items-center gap-4">
               <a
                 href="https://linkedin.com/company/mytallybee"
                 className="p-2 bg-blue-800 hover:bg-blue-700 rounded-lg transition-colors"
@@ -153,36 +169,7 @@ export function Footer() {
               >
                 <Twitter size={16} />
               </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Contact block */}
-        <div className="mt-6 border-t pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <div>
-            <p className="text-sm text-blue-100">Questions? Reach us:</p>
-            <div className="flex items-center gap-4">
-              <a
-                href="mailto:ziy@mytallybee.com"
-                className="text-sm text-blue-100 hover:text-white underline-offset-2 hover:underline"
-                aria-label="Email MyTallyBee"
-              >
-                ziy@mytallybee.com
-              </a>
-              <span className="text-blue-200">•</span>
-              <a
-                href="tel:+12138683048"
-                className="text-sm text-blue-100 hover:text-white underline-offset-2 hover:underline"
-                aria-label="Call MyTallyBee"
-              >
-                (213) 868-3048
-              </a>
-            </div>
-          </div>
-
-          {/* optionally preserve existing footer right-side content... */}
-          <div>
-            {/* ...existing footer right-side content... */}
+            </div> */}
           </div>
         </div>
       </div>

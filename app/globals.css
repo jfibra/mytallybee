@@ -207,4 +207,33 @@
   .animate-shimmer {
     animation: shimmer 2s infinite;
   }
+
+  /* Scroll reveal base */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 600ms cubic-bezier(.2,.9,.2,1), transform 600ms cubic-bezier(.2,.9,.2,1);
+    will-change: opacity, transform;
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  /* Directions */
+  .reveal[data-direction="left"] { transform: translateX(-40px); }
+  .reveal[data-direction="right"] { transform: translateX(40px); }
+  .reveal[data-direction="up"] { transform: translateY(40px); }
+  .reveal[data-direction="down"] { transform: translateY(-40px); }
+
+  .reveal.revealed {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+
+  /* optional reduced-motion respect */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .reveal.revealed {
+      transition: none !important;
+      transform: none !important;
+      opacity: 1 !important;
+    }
+  }
 }
