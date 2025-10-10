@@ -122,21 +122,37 @@ export default function ServicesPage() {
   const pricingTiers = [
     {
       name: "Starter",
-      transactions: "Up to 50 transactions/month",
-      price: "$250",
+      transactions: "Up to 20 transactions/month",
+      price: "$150",
       features: ["Monthly reconciliations", "Basic P&L and Balance Sheet", "Email support"],
     },
     {
       name: "Growth",
+      transactions: "21-50 transactions/month",
+      price: "$250",
+      features: ["Monthly reconciliations", "Basic P&L and Balance Sheet", "Email support"],
+    },
+    {
+      name: "Mid",
       transactions: "51-150 transactions/month",
       price: "$450",
-      features: ["Everything in Starter", "Accounts payable/receivable", "Payroll categorization", "Priority support"],
+      features: [
+        "Everything in Starter",
+        "Accounts payable/receivable",
+        "Payroll categorization",
+        "Priority support"
+      ],
     },
     {
       name: "Scale",
       transactions: "151+ transactions/month",
       price: "Custom",
-      features: ["Everything in Growth", "Custom reporting", "Dedicated bookkeeper", "Phone support"],
+      features: [
+        "Everything in Growth",
+        "Custom reporting",
+        "Dedicated bookkeeper",
+        "Phone support"
+      ],
     },
   ]
 
@@ -251,7 +267,7 @@ export default function ServicesPage() {
               <p className="text-base sm:text-lg text-gray-600">Choose the plan that fits your business size</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-8">
               {pricingTiers.map((tier, index) => (
                 <div
                   key={index}
