@@ -119,39 +119,44 @@ export default function ServicesPage() {
     },
   ]
 
-  const pricingTiers = [
+  // Pricing updated to discounted hourly rates based on monthly usage
+  const hourlyTiers = [
     {
-      name: "Starter",
-      transactions: "Up to 20 transactions/month",
-      price: "$150",
+      name: "1-5 hours / month",
+      range: "1-5 hours per month",
+      rate: "$35",
+      unit: "per hour",
       features: ["Monthly reconciliations", "Basic P&L and Balance Sheet", "Email support"],
     },
     {
-      name: "Growth",
-      transactions: "21-50 transactions/month",
-      price: "$250",
+      name: "6-10 hours / month",
+      range: "6-10 hours per month",
+      rate: "$30",
+      unit: "per hour",
       features: ["Monthly reconciliations", "Basic P&L and Balance Sheet", "Email support"],
     },
     {
-      name: "Mid",
-      transactions: "51-150 transactions/month",
-      price: "$450",
+      name: "11+ hours / month",
+      range: "11+ hours per month",
+      rate: "$25",
+      unit: "per hour",
       features: [
         "Everything in Starter",
         "Accounts payable/receivable",
         "Payroll categorization",
-        "Priority support"
+        "Priority support",
       ],
     },
     {
       name: "Scale",
-      transactions: "151+ transactions/month",
-      price: "Custom",
+      range: "Custom",
+      rate: "Custom",
+      unit: "",
       features: [
         "Everything in Growth",
         "Custom reporting",
         "Dedicated bookkeeper",
-        "Phone support"
+        "Phone support",
       ],
     },
   ]
@@ -267,17 +272,22 @@ export default function ServicesPage() {
               <p className="text-base sm:text-lg text-gray-600">Choose the plan that fits your business size</p>
             </div>
 
+            <p className="text-center text-sm text-gray-600 mb-6">
+              Our hourly rate is discounted based upon usage. Choose the band that matches your monthly hours.
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-8">
-              {pricingTiers.map((tier, index) => (
+              {hourlyTiers.map((tier, index) => (
                 <div
                   key={index}
-                  className={`p-8 bg-white rounded-xl border-2 ${index === 1 ? "border-brand-blue shadow-lg scale-105" : "border-gray-100"} hover:shadow-xl transition-all duration-300`}
+                  className={`p-8 bg-white rounded-xl border-2 ${tier.name === "6-10 hours / month" ? "border-brand-blue shadow-lg scale-105" : "border-gray-100"} hover:shadow-xl transition-all duration-300`}
                 >
                   <div className="text-center mb-6">
                     <h3 className="text-2xl font-bold text-brand-navy mb-2">{tier.name}</h3>
-                    <p className="text-gray-600 mb-4">{tier.transactions}</p>
-                    <div className="text-4xl font-bold text-brand-blue mb-2">{tier.price}</div>
-                    {tier.price !== "Custom" && <p className="text-gray-500">/month</p>}
+                    <p className="text-gray-600 mb-4">{tier.range}</p>
+                    <div className="text-4xl font-bold text-brand-blue mb-2">
+                      {tier.rate} {tier.unit}
+                    </div>
+                    {tier.rate !== "Custom" && <p className="text-gray-500">billed monthly</p>}
                   </div>
 
                   <ul className="space-y-3 mb-8">
@@ -299,7 +309,7 @@ export default function ServicesPage() {
                     ))}
                   </ul>
 
-                  <Button asChild variant={index === 1 ? "accent" : "secondary"} className="w-full">
+                  <Button asChild variant={tier.name === "6-10 hours / month" ? "accent" : "secondary"} className="w-full">
                     <Link href="/contact">Get Started</Link>
                   </Button>
                 </div>
